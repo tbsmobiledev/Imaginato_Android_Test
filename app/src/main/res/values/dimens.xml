@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="very_small_textsize">@dimen/_8ssp</dimen>
+    <dimen name="small_textsize">@dimen/_10ssp</dimen>
+    <dimen name="normal_textsize">@dimen/_12ssp</dimen>
+    <dimen name="medium_textsize">@dimen/_14ssp</dimen>
+    <dimen name="big_textsize">@dimen/_16ssp</dimen>
+    <dimen name="large_textsize">@dimen/_20ssp</dimen>
+    <dimen name="x_large_textsize">@dimen/_26ssp</dimen>
+
+    <dimen name="et_height">@dimen/_40sdp</dimen>
+
+</resources>

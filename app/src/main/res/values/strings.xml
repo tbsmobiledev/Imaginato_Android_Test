@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Imaginato</string>
+
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="ok">OK</string>
+    <string name="alert">Alert!</string>
+    <string name="enter_username">Please enter username.</string>
+    <string name="enter_password">Please enter Password</string>
+
+    <string name="alert_some_thing_wrong">Something went wrong</string>
+    <string name="alert_time_out">Time out Error</string>
+    <string name="alert_server_error">Server Error</string>
+    <string name="alert_internet">The Internet connection appears to be offline</string>
+    <string name="userid">User Id</string>
+    <string name="colom">:</string>
+    <string name="User_Details">User Details</string>
+
+</resources>
