@@ -5,3 +5,6 @@
 - User Details info screen 
 - Room Database integration
 - Android various components
+
+- Remoove hard coded text
+- MVVM Design paten implemented
