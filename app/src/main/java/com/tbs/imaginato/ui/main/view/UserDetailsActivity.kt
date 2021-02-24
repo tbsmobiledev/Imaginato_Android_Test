@@ -1,20 +1,26 @@
 package com.tbs.imaginato.ui.main.view
 
+import android.app.Activity
 import android.os.Bundle
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.tbs.imaginato.R
+import com.tbs.imaginato.data.local.DatabaseConstant
 import com.tbs.imaginato.data.local.UserDatabase
 import com.tbs.imaginato.data.local.UserModel
 import com.tbs.imaginato.ui.base.BaseActivity
 import com.tbs.imaginato.ui.main.adapter.UserAdapter
+import com.tbs.imaginato.ui.main.viewmodel.UserDetailsViewModel
+import com.tbs.imaginato.utils.listeners.Click
 
+@Suppress("UNCHECKED_CAST")
 class UserDetailsActivity : BaseActivity() {
 
+    private val activity : Activity = this
     private lateinit var userDatabase: UserDatabase
     private lateinit var mRecyclerview: RecyclerView
+    private lateinit var userDetailsViewModel: UserDetailsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +35,7 @@ class UserDetailsActivity : BaseActivity() {
      */
     private fun init() {
         userDatabase =
-            Room.databaseBuilder(this, UserDatabase::class.java, "Imaginato")
+            Room.databaseBuilder(this, UserDatabase::class.java, DatabaseConstant.DATABASE_NAME)
                 .allowMainThreadQueries()
                 .build()
 
@@ -42,20 +48,15 @@ class UserDetailsActivity : BaseActivity() {
      * Bind data for User
      */
     private fun bindData() {
-        val userList: List<UserModel> = userDatabase.userDao().getUser()
+        userDetailsViewModel = UserDetailsViewModel(activity,userDatabase, object: Click {
+            override fun onclick(position: Int, `object`: Any, text: String) {
 
-        if (userList.isNotEmpty()) {
-            val adapter = UserAdapter(userList)
-            mRecyclerview.adapter = adapter
-            for (i in userList.indices) {
-                Log.e(MainActivity::class.simpleName, "Id: ${userList[i].id}")
-                Log.e(MainActivity::class.simpleName, "User Id: ${userList[i].userId}")
-                Log.e(
-                    MainActivity::class.simpleName,
-                    "User Name: ${userList[i].userName}"
-                )
+                val userList: List<UserModel> = `object` as List<UserModel>
+                val adapter = UserAdapter(userList)
+                mRecyclerview.adapter = adapter
             }
-        }
+        })
+
     }
 
 }

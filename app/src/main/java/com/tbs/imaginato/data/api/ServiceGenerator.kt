@@ -19,9 +19,9 @@ class ServiceGenerator {
             httpClient.addInterceptor { chain ->
                 val original = chain.request()
                 val builder = original.newBuilder()
-                builder.header("Content-Type", "application/json")
-                builder.header("IMSI", ApiConstant.IMSI)
-                builder.header("IMEI", ApiConstant.IMEI)
+                builder.header(ApiConstant.KEY_CONTENT_TYPE, ApiConstant.CONTENT_TYPE)
+                builder.header(ApiConstant.KEY_IMSI, ApiConstant.IMSI)
+                builder.header(ApiConstant.KEY_IMEI, ApiConstant.IMEI)
                 val request = builder.build()
                 chain.proceed(request)
             }

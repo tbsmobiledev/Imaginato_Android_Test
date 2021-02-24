@@ -16,5 +16,6 @@
     <string name="userid">User Id</string>
     <string name="colom">:</string>
     <string name="User_Details">User Details</string>
+    <string name="done">DONE</string>
 
 </resources>
